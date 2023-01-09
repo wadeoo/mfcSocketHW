@@ -1,19 +1,6 @@
-﻿生成启动时间为 2023/1/9 21:10:33。
+﻿生成启动时间为 2023/1/9 23:36:09。
      1>项目“D:\BASIC\Desktop\winSocketccf\mfcSocketHW\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\SocketServer\SocketServer.vcxproj”在节点 3 上(Build 个目标)。
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SocketServer.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-     1>c:\program files (x86)\microsoft visual studio 12.0\vc\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\atlmfc\include\afx.h(33) : 参见“MBCS_Support_Deprecated_In_MFC”的声明
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SocketServer.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SocketServer.cpp SocketServerDlg.cpp
-         SocketServerDlg.cpp
-     1>d:\basic\desktop\winsocketccf\mfcsockethw\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\socketserver\socketserverdlg.cpp(247): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\basic\desktop\winsocketccf\mfcsockethw\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\socketserver\socketserverdlg.cpp(248): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\basic\desktop\winsocketccf\mfcsockethw\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\socketserver\socketserverdlg.cpp(266): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\basic\desktop\winsocketccf\mfcsockethw\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\socketserver\socketserverdlg.cpp(268): warning C4018: “<”: 有符号/无符号不匹配
-         SocketServer.cpp
-         正在生成代码...
-       ResourceCompile:
+     1>ResourceCompile:
          C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /l"0x0419" /IDebug\ /nologo /fo"Debug\SocketServer.res" SocketServer.rc 
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\Debug\SocketServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\Debug\SocketServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\112000840吴炜达(网络编程实践作品)\源代码\shuxueyouxi\Debug\SocketServer.lib" /MACHINE:X86 Debug\SocketServer.res
@@ -25,4 +12,4 @@
 
 生成成功。
 
-已用时间 00:00:04.63
+已用时间 00:00:00.88

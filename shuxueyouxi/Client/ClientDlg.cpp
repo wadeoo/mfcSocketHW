@@ -223,7 +223,7 @@ void CClientDlg::NewLevel()
 	//new
 	//GetDlgItem(IDC_LEVEL)->SetWindowTextA(str);
 	GetDlgItem(IDC_LEVEL)->SetWindowTextA(str);
-	str.Format("%s%d", ": ", g->points);
+	str.Format("%s%d", "points: ", g->points);
 	GetDlgItem(IDC_COUNT)->SetWindowTextA(str);
 	g->sec = 30;
 	str.Format("%s%d", "time:", g->sec);
@@ -292,7 +292,7 @@ void CClientDlg::OnBnClickededEnter()
 		if (k = g->check(_ttoi (str))){
 			KillTimer(ID_TIMER_1);
 			g->points += 5;
-			str.Format("%s%d", "zh", g->points);
+			str.Format("%s%d", "points", g->points);
 			GetDlgItem(IDC_COUNT)->SetWindowTextA(str);
 			g->Digits(k - 1);
 			g->Operation(k - 1);

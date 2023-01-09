@@ -97,15 +97,15 @@ BOOL CSocketServerDlg::OnInitDialog()
 	int rc;
 	if( (rc = WSAStartup (MAKEWORD(1, 1), &data)) != 0){
 		CString str;
-		str.Format(L"WSAStartup  Error = %d", WSAGetLastError());
+		str.Format("WSAStartup  Error = %d", WSAGetLastError());
 		MessageBox(str);
 		EndDialog(IDCANCEL);
 		return FALSE;
 	}
 
 	m_list.SetExtendedStyle(m_list.GetExtendedStyle() | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES | LVS_EX_FLATSB | LVS_EX_INFOTIP | LVS_EX_TRACKSELECT | LVS_EX_ONECLICKACTIVATE);
-	m_list.InsertColumn(0, L"用户", LVCFMT_CENTER, 200);
-	m_list.InsertColumn(1, L"账号",LVCFMT_CENTER, 200);
+	m_list.InsertColumn(0, "a", LVCFMT_CENTER, 200);
+	m_list.InsertColumn(1, "r",LVCFMT_CENTER, 200);
 
 	return TRUE;  
 }
@@ -159,7 +159,7 @@ void CSocketServerDlg::OnBnClickedStart()
 	OnBnClickedStop();
 	if((m_socket=socket(AF_INET, SOCK_STREAM, 0))  == INVALID_SOCKET){
 		CString str;
-		str.Format(L"Socket Error = %d", WSAGetLastError());
+		str.Format("Socket Error = %d", WSAGetLastError());
 		MessageBox(str);
 		return;
 	}
@@ -171,7 +171,7 @@ void CSocketServerDlg::OnBnClickedStart()
 
 	if (bind(m_socket, (SOCKADDR*)&CAddress, sizeof(CAddress)) == SOCKET_ERROR){
 		CString str;
-		str.Format(L"Socket Error = %d", WSAGetLastError());
+		str.Format("Socket Error = %d", WSAGetLastError());
 		MessageBox(str);
 		closesocket(m_socket);
 		m_socket = INVALID_SOCKET;
@@ -182,7 +182,7 @@ void CSocketServerDlg::OnBnClickedStart()
 
 	if(listen(m_socket, 1) == SOCKET_ERROR){ 
 		CString str;
-		str.Format(L"Socket Error = %d", WSAGetLastError());
+		str.Format("Socket Error = %d", WSAGetLastError());
 		MessageBox(str);
 		closesocket(m_socket);
 		m_socket = INVALID_SOCKET;
@@ -218,7 +218,7 @@ LRESULT CSocketServerDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 		if (event == FD_ACCEPT){
 			s_clients.push_back(accept(m_socket, (LPSOCKADDR)&CAddress, &CAddress_len));
 			CString str;
-			str.Format(L"Accept: %d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
+			str.Format("Accept: %d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
 			m_list.InsertItem(m_list.GetItemCount(), str);
 		}
 		else if (event == FD_READ){
@@ -227,20 +227,20 @@ LRESULT CSocketServerDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			CString str;
 
 			if (recv(s_client, (char*)&r, sizeof(r), 0) == SOCKET_ERROR){
-				str.Format(L"Socket Error: %d", WSAGetLastError());
+				str.Format("Socket Error: %d", WSAGetLastError());
 				MessageBox(str);
 				return CDialogEx::WindowProc(message, wParam, lParam);
 			}
 
-			str.Format(L"用户: %s", r.name);
+			str.Format("username: %s", r.name);
 			int pos = m_list.InsertItem(m_list.GetItemCount(), str);
 
 			if (r.con){
-				str.Format(L"%d", r.message);
+				str.Format("%d", r.message);
 				m_list.SetItemText(pos, 1, str);
 				all_r.push_back(r);
 			}
-			else m_list.SetItemText(pos, 1, L"connected to game");
+			else m_list.SetItemText(pos, 1, "connected to game");
 
 			if (all_r.size() && all_r.size() == s_clients.size()){
 				all_r[0].con = false;
@@ -259,10 +259,10 @@ LRESULT CSocketServerDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 		else if (event == FD_CLOSE){
 			getsockname(s_client, (LPSOCKADDR)&CAddress, &CAddress_len);
 			CString str;
-			str.Format(L"Disconnect: %d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
+			str.Format("Disconnect: %d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
 			m_list.InsertItem(m_list.GetItemCount(), str);
 			
-			str.Format(L"%d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
+			str.Format("%d.%d.%d.%d", CAddress.sin_addr.S_un.S_un_b.s_b1, CAddress.sin_addr.S_un.S_un_b.s_b2, CAddress.sin_addr.S_un.S_un_b.s_b3, CAddress.sin_addr.S_un.S_un_b.s_b4);
 			for (int i = 0; i < all_r.size(); i++)
 				if (all_r[i].ip == str) all_r.erase(all_r.begin() + i);
 			for (int i = 0; i < s_clients.size(); i++)

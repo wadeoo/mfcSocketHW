@@ -1,26 +1,20 @@
-﻿生成启动时间为 2023/1/9 17:48:39。
-     1>项目“D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\SocketServer\SocketServer.vcxproj”在节点 3 上(Rebuild 个目标)。
+﻿生成启动时间为 2023/1/9 19:04:29。
+     1>项目“D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\SocketServer\SocketServer.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SocketServer.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SocketServer.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SocketServer.cpp SocketServerDlg.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SocketServer.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SocketServerDlg.cpp
          SocketServerDlg.cpp
      1>d:\basic\desktop\winsocketccf\mfcsockethw\shuxueyouxi\socketserver\socketserverdlg.cpp(247): warning C4018: “<”: 有符号/无符号不匹配
      1>d:\basic\desktop\winsocketccf\mfcsockethw\shuxueyouxi\socketserver\socketserverdlg.cpp(248): warning C4018: “<”: 有符号/无符号不匹配
      1>d:\basic\desktop\winsocketccf\mfcsockethw\shuxueyouxi\socketserver\socketserverdlg.cpp(266): warning C4018: “<”: 有符号/无符号不匹配
      1>d:\basic\desktop\winsocketccf\mfcsockethw\shuxueyouxi\socketserver\socketserverdlg.cpp(268): warning C4018: “<”: 有符号/无符号不匹配
-         SocketServer.cpp
-         正在生成代码...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /l"0x0419" /IDebug\ /nologo /fo"Debug\SocketServer.res" SocketServer.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.lib" /MACHINE:X86 Debug\SocketServer.res
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.lib" /MACHINE:X86 Debug\SocketServer.res
          Debug\SocketServer.obj
          Debug\SocketServerDlg.obj
          Debug\stdafx.obj
          SocketServer.vcxproj -> D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\Debug\SocketServer.exe
-     1>已完成生成项目“D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\SocketServer\SocketServer.vcxproj”(Rebuild 个目标)的操作。
+     1>已完成生成项目“D:\BASIC\Desktop\winSocketccf\mfcSocketHW\shuxueyouxi\SocketServer\SocketServer.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:04.31
+已用时间 00:00:00.96

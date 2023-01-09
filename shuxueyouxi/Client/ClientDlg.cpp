@@ -50,7 +50,7 @@ END_MESSAGE_MAP()
 
 CClientDlg::CClientDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CClientDlg::IDD, pParent)
-	, m_login(_T("no name"))
+	, m_login(("no name"))
 	, m_port(3600)
 	, m_ip(_T("127.0.0.1"))
 {
@@ -122,8 +122,9 @@ BOOL CClientDlg::OnInitDialog()
 	}
 	
 	m_list.SetExtendedStyle(m_list.GetExtendedStyle() | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES | LVS_EX_FLATSB | LVS_EX_INFOTIP | LVS_EX_TRACKSELECT | LVS_EX_ONECLICKACTIVATE);
-	m_list.InsertColumn(0, L"用户", LVCFMT_CENTER, 200);
-	m_list.InsertColumn(1, L"账号", LVCFMT_CENTER, 70);
+	//new
+	m_list.InsertColumn(0, "a", LVCFMT_CENTER, 200);
+	m_list.InsertColumn(1, "r", LVCFMT_CENTER, 70);
 
 	return TRUE;  
 }
@@ -204,7 +205,7 @@ void CClientDlg::OnBnClickedConnect()
 	r.SetMessage(m_login, m_ip, 0, 0);
 	if (send(m_socket, (char*)&r, sizeof(r), MSG_OOB) == SOCKET_ERROR){
 		CString str;
-		str.Format(L"Socket Error: %d", WSAGetLastError());
+		str.Format("Socket Error: %d", WSAGetLastError());
 		MessageBox(str);
 		return;
 	}
@@ -218,13 +219,15 @@ void CClientDlg::NewLevel()
 {
 	g->level++;
 	CString str;
-	str.Format(L"%s%d", L"水平", g->level);
-	GetDlgItem(IDC_LEVEL)->SetWindowTextW(str);
-	str.Format(L"%s%d", L"账号:", g->points);
-	GetDlgItem(IDC_COUNT)->SetWindowTextW(str);
+	str.Format("%s%d", "lvl: ", g->level);
+	//new
+	//GetDlgItem(IDC_LEVEL)->SetWindowTextA(str);
+	GetDlgItem(IDC_LEVEL)->SetWindowTextA(str);
+	str.Format("%s%d", ": ", g->points);
+	GetDlgItem(IDC_COUNT)->SetWindowTextA(str);
 	g->sec = 30;
-	str.Format(L"%s%d", L"剩余时间:", g->sec);
-	GetDlgItem(IDC_TIMESEC)->SetWindowTextW(str);
+	str.Format("%s%d", "time:", g->sec);
+	GetDlgItem(IDC_TIMESEC)->SetWindowTextA(str);
 
 	SetTasks();
 	OnEllements();
@@ -283,18 +286,18 @@ void CClientDlg::OnBnClickededEnter()
 	if (!g) return;
 	int k;
 	CString str;
-	GetDlgItem(IDC_EDIT5)->GetWindowTextW(str);
+	GetDlgItem(IDC_EDIT5)->GetWindowTextA(str);
 	if (str){
-		GetDlgItem(IDC_EDIT5)->SetWindowTextW(L"");
-		if (k = g->check(_wtoi(str))){
+		GetDlgItem(IDC_EDIT5)->SetWindowTextA("");
+		if (k = g->check(_ttoi (str))){
 			KillTimer(ID_TIMER_1);
 			g->points += 5;
-			str.Format(L"%s%d", L"账号:", g->points);
-			GetDlgItem(IDC_COUNT)->SetWindowTextW(str);
+			str.Format("%s%d", "zh", g->points);
+			GetDlgItem(IDC_COUNT)->SetWindowTextA(str);
 			g->Digits(k - 1);
 			g->Operation(k - 1);
-			str.Format(L"%d%c%d", g->x[k - 1], g->getOperation(g->k[k - 1]), g->y[k - 1]);
-			GetDlgItem(IDC_EDIT2 + k - 1)->SetWindowTextW(str);
+			str.Format("%d%c%d", g->x[k - 1], g->getOperation(g->k[k - 1]), g->y[k - 1]);
+			GetDlgItem(IDC_EDIT2 + k - 1)->SetWindowTextA(str);
 			SetTimer(ID_TIMER_1, 3000, NULL);
 		}
 	}
@@ -305,8 +308,8 @@ void CClientDlg::SetTasks()
 	g->setValues();
 	CString str;
 	for (int i = 0; i < g->countTasks; i++){
-		str.Format(L"%d%c%d", g->x[i], g->getOperation(g->k[i]), g->y[i]);
-		GetDlgItem(IDC_EDIT2+i)->SetWindowTextW(str);
+		str.Format("%d%c%d", g->x[i], g->getOperation(g->k[i]), g->y[i]);
+		GetDlgItem(IDC_EDIT2+i)->SetWindowTextA(str);
 	}
 }
 
@@ -330,8 +333,8 @@ void CClientDlg::OnTimer(UINT_PTR nIDEvent)
 	}
 	if (nIDEvent == 3){
 		CString str;
-		str.Format(L"%s%d",L"剩余时间:", g->sec);
-		GetDlgItem(IDC_TIMESEC)->SetWindowTextW(str);
+		str.Format("%s%d","time:", g->sec);
+		GetDlgItem(IDC_TIMESEC)->SetWindowTextA(str);
 		g->sec--;
 	}
 
@@ -362,7 +365,7 @@ LRESULT CClientDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			reply all_r;
 			if (recv(m_socket, (char*)&all_r, sizeof(all_r), 0) == SOCKET_ERROR){
 				CString str;
-				str.Format(L"Socket Error: %d", WSAGetLastError());
+				str.Format("Socket Error: %d", WSAGetLastError());
 				MessageBox(str);
 				return CDialogEx::WindowProc(message, wParam, lParam);
 			}
@@ -370,7 +373,7 @@ LRESULT CClientDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			if (!all_r.con) m_list.DeleteAllItems();
 			CString str;
 			int pos = m_list.InsertItem(m_list.GetItemCount(), all_r.name);
-			str.Format(L"%d", all_r.message);
+			str.Format("%d", all_r.message);
 			m_list.SetItemText(pos, 1, str);
 
 			GetDlgItem(IDC_WAITUSERS)->ShowWindow(FALSE);
@@ -379,7 +382,7 @@ LRESULT CClientDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 		else if (event == FD_CLOSE){
 			OnBnClickedDisconnect();
-			MessageBox(L"连接中断");
+			MessageBox("连接中断");
 		}
 	}
 	return CDialogEx::WindowProc(message, wParam, lParam);

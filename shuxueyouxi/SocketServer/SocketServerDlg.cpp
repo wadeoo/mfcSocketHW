@@ -105,7 +105,7 @@ BOOL CSocketServerDlg::OnInitDialog()
 
 	m_list.SetExtendedStyle(m_list.GetExtendedStyle() | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES | LVS_EX_FLATSB | LVS_EX_INFOTIP | LVS_EX_TRACKSELECT | LVS_EX_ONECLICKACTIVATE);
 	m_list.InsertColumn(0, "a", LVCFMT_CENTER, 200);
-	m_list.InsertColumn(1, "r",LVCFMT_CENTER, 200);
+	m_list.InsertColumn(1, "points",LVCFMT_CENTER, 200);
 
 	return TRUE;  
 }
